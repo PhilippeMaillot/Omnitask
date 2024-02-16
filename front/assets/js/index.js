@@ -40,8 +40,8 @@ document.addEventListener("DOMContentLoaded", function () {
       var formData = new FormData(this); // Create FormData object with form data
       var taskData = {
         id_cat: this.dataset.category, // Get category ID from data attribute of form
-        intitule: formData.get("Intitulé"),
-        contenu: formData.get("Description"),
+        intitule: formData.get("title"),
+        contenu: formData.get("description"),
       };
       console.log(taskData);
 
@@ -145,8 +145,8 @@ function showList() {
 // Fonction pour afficher le formulaire de modification
 function showModifyForm(taskId, title, description) {
   // Populate form fields with task data
-  document.getElementById("Intitulé").value = title;
-  document.getElementById("Description").value = description;
+  document.getElementById("title").value = title;
+  document.getElementById("description").value = description;
 
   // Show modal
   modal.style.display = "block";
