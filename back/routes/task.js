@@ -6,7 +6,7 @@ router.get("/", taskController.getAllTasks);
 
 router.post("/add", taskController.add);
 
-router.post("/delete", taskController.delete);
+router.post("/delete/:id", taskController.delete);
 
 router.post("/update", taskController.update);
 

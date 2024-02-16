@@ -36,17 +36,17 @@ class TaskController {
             const updatedFields = [];
     
             if (id_cat) {
-                await model.updateTournament(id, id_cat);
+                await model.updateCat(id, id_cat);
                 updatedFields.push("id_cat");
             }
     
             if (intitule) {
-                await model.updateClub(id, intitule);
+                await model.updateIntitule(id, intitule);
                 updatedFields.push("intitule");
             }
 
             if (contenu) {
-                await model.updateClub(id, contenu);
+                await model.updateContenu(id, contenu);
                 updatedFields.push("contenu");
             }
     
@@ -59,14 +59,15 @@ class TaskController {
 
     static delete = async (req, res) => {
         try {
-            const { id } = req.body;
+            const { id } = req.params; // Récupérer l'ID à partir des paramètres de la requête
             await model.delete(id);
-            res.status(200).json({ message: "tache supprimée !" });
+            res.status(200).json({ message: "Tâche supprimée !" });
         } catch (error) {
             console.error(error);
-            res.status(500).json({ error: "Internal Server Error" });
+            res.status(500).json({ error: "Erreur interne du serveur" });
         }
     };
+    
 
     static getInfo = async (req, res) => {
         try {
